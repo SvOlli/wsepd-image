@@ -1,0 +1,18 @@
+wsepd-image (0.4) unstable; urgency=medium
+
+  * added watermark image mode
+
+ -- Sven Oliver Moll <svolli@svolli.de>  Sat, 05 Jan 2019 20:14:32 +0100
+
+wsepd-image (0.3) unstable; urgency=medium
+
+  * going multidisplay
+  * command line options
+
+ -- Sven Oliver Moll <svolli@svolli.de>  Thu, 03 Jan 2019 21:57:33 +0100
+
+wsepd-image (0.2) unstable; urgency=medium
+
+  * Initial Release.
+
+ -- Sven Oliver Moll <svolli@svolli.de>  Sun, 23 Dec 2018 16:48:45 +0100

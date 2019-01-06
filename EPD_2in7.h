@@ -39,6 +39,12 @@
 #define EPD_WIDTH       176
 #define EPD_HEIGHT      264
 
+#define EPD_WaitUntilIdle EPD_WaitUntilIdle_2in7
+#define EPD_Init          EPD_Init_2in7
+#define EPD_Clear         EPD_Clear_2in7
+#define EPD_Display       EPD_Display_2in7
+#define EPD_Sleep         EPD_Sleep_2in7
+
 // EPD2IN7 commands
 #define PANEL_SETTING                               0x00
 #define POWER_SETTING                               0x01

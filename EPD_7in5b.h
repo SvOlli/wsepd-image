@@ -30,10 +30,16 @@
 # THE SOFTWARE.
 #
 ******************************************************************************/
-#ifndef _EPD5IN83B_H
-#define _EPD5IN83B_H
+#ifndef _EPD7IN5B_H_
+#define _EPD7IN5B_H_
 
 #include "DEV_Config.h"
+
+#define EPD_WaitUntilIdle EPD_WaitUntilIdle_7in5b
+#define EPD_Init          EPD_Init_7in5b
+#define EPD_Clear         EPD_Clear_7in5b
+#define EPD_Display       EPD_Display_7in5b
+#define EPD_Sleep         EPD_Sleep_7in5b
 
 // Display resolution
 #define EPD_WIDTH       640

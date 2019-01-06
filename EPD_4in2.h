@@ -35,6 +35,12 @@
 
 #include "DEV_Config.h"
 
+#define EPD_WaitUntilIdle EPD_WaitUntilIdle_4in2
+#define EPD_Init          EPD_Init_4in2
+#define EPD_Clear         EPD_Clear_4in2
+#define EPD_Display       EPD_Display_4in2
+#define EPD_Sleep         EPD_Sleep_4in2
+
 // Display resolution
 #define EPD_WIDTH       400
 #define EPD_HEIGHT      300

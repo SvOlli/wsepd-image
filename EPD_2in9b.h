@@ -1,5 +1,5 @@
 /*****************************************************************************
-* | File      	:	EPD_1in54.h
+* | File      	:	EPD_2in9b.h
 * | Author      :   Waveshare team
 * | Function    :   Electronic paper driver
 * | Info        :
@@ -34,6 +34,12 @@
 #define _EPD2IN9B_H
 
 #include "DEV_Config.h"
+
+#define EPD_WaitUntilIdle  EPD_WaitUntilIdle_2in9b
+#define EPD_Init           EPD_Init_2in9b
+#define EPD_Clear          EPD_Clear_2in9b
+#define EPD_Display        EPD_Display_2in9b
+#define EPD_Sleep          EPD_Sleep_2in9b
 
 // Display resolution
 #define EPD_WIDTH       128

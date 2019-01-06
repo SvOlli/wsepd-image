@@ -38,7 +38,7 @@
 #include "EPD_2in7b.h"
 #include "Debug.h"
 
-const unsigned char lut_vcom_dc[] = {
+static const unsigned char lut_vcom_dc[] = {
     0x00, 0x00,
     0x00, 0x1A, 0x1A, 0x00, 0x00, 0x01,
     0x00, 0x0A, 0x0A, 0x00, 0x00, 0x08,
@@ -50,7 +50,7 @@ const unsigned char lut_vcom_dc[] = {
 };
 
 //R21H
-const unsigned char lut_ww[] = {
+static const unsigned char lut_ww[] = {
     0x90, 0x1A, 0x1A, 0x00, 0x00, 0x01,
     0x40, 0x0A, 0x0A, 0x00, 0x00, 0x08,
     0x84, 0x0E, 0x01, 0x0E, 0x01, 0x10,
@@ -61,7 +61,7 @@ const unsigned char lut_ww[] = {
 };
 
 //R22H    r
-const unsigned char lut_bw[] = {
+static const unsigned char lut_bw[] = {
     0xA0, 0x1A, 0x1A, 0x00, 0x00, 0x01,
     0x00, 0x0A, 0x0A, 0x00, 0x00, 0x08,
     0x84, 0x0E, 0x01, 0x0E, 0x01, 0x10,
@@ -72,7 +72,7 @@ const unsigned char lut_bw[] = {
 };
 
 //R23H    w
-const unsigned char lut_bb[] = {
+static const unsigned char lut_bb[] = {
     0x90, 0x1A, 0x1A, 0x00, 0x00, 0x01,
     0x40, 0x0A, 0x0A, 0x00, 0x00, 0x08,
     0x84, 0x0E, 0x01, 0x0E, 0x01, 0x10,
@@ -83,7 +83,7 @@ const unsigned char lut_bb[] = {
 };
 
 //R24H    b
-const unsigned char lut_wb[] = {
+static const unsigned char lut_wb[] = {
     0x90, 0x1A, 0x1A, 0x00, 0x00, 0x01,
     0x20, 0x0A, 0x0A, 0x00, 0x00, 0x08,
     0x84, 0x0E, 0x01, 0x0E, 0x01, 0x10,
@@ -139,12 +139,12 @@ parameter:
 ******************************************************************************/
 void EPD_WaitUntilIdle(void)
 {
-    Debug("e-Paper busy\r\n");
+    Debug("e-Paper busy\n");
     while(DEV_Digital_Read(EPD_BUSY_PIN) == 0) {      //0: busy, 1: idle
         DEV_Delay_ms(100);
     }
     
-    Debug("e-Paper busy release\r\n");
+    Debug("e-Paper busy release\n");
 }
 
 /******************************************************************************

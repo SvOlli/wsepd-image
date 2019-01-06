@@ -70,7 +70,7 @@ void DEV_SPI_WriteByte(UBYTE value)
     int read_data;
     read_data = wiringPiSPIDataRW(0,&value,1);
     if(read_data < 0)
-        perror("wiringPiSPIDataRW failed\r\n");
+        perror("wiringPiSPIDataRW failed\n");
 }
 
 /******************************************************************************
@@ -80,15 +80,12 @@ Info:
 ******************************************************************************/
 UBYTE DEV_ModuleInit(void)
 {
-    //if(wiringPiSetup() < 0)//use wiringpi Pin number table
     if(wiringPiSetupGpio() < 0) { //use BCM2835 Pin number table
-        printf("set wiringPi lib failed	!!! \r\n");
+        printf("set wiringPi lib failed	!!!\n");
         return 1;
-    } else {
-        printf("set wiringPi lib success !!! \r\n");
     }
     
-	DEV_GPIOConfig();
+    DEV_GPIOConfig();
 
     //wiringPiSPISetup(0,9000000);
     wiringPiSPISetupMode(0, 32000000, 0);

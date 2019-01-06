@@ -85,13 +85,13 @@ parameter:
 void EPD_WaitUntilIdle(void)
 {
     UBYTE busy;
-    Debug("e-Paper busy\r\n");
+    Debug("e-Paper busy\n");
     do {
         EPD_SendCommand(0x71);
         busy = DEV_Digital_Read(EPD_BUSY_PIN);
         busy =!(busy & 0x01);
     } while(busy);
-    Debug("e-Paper busy release\r\n");
+    Debug("e-Paper busy release\n");
 }
 
 /******************************************************************************
