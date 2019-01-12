@@ -161,7 +161,7 @@ int main( int argc, char *argv[] )
       exit(12);
    }
 
-   if( (epd.bitplanes == 1) && filename_2 )
+   if( (epd.bitplanes < 2) && filename_2 )
    {
       fprintf( stderr, "hardware does not support color/watermark image.\n" );
       exit(13);
@@ -184,12 +184,10 @@ int main( int argc, char *argv[] )
       if( filename_2 )
       {
          buffer_2 = (uint8_t*)malloc( epd.datasize );
-         if( epd.bitplanes > 1 )
+         buffer_clean( buffer_2, &epd, 0 );
+         if( !img_load( m_wand, p_wand, filename_2, epd.dispsize, load_cfg_2 ) )
          {
-            if( !img_load( m_wand, p_wand, filename_2, epd.dispsize, load_cfg_2 ) )
-            {
-               buffer_img( buffer_2, &epd, 0, m_wand, p_wand );
-            }
+            buffer_img( buffer_2, &epd, 0, m_wand, p_wand );
          }
       }
       else

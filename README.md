@@ -54,7 +54,8 @@ needed to compile your code (headers, link libraries, etc.). So if you're
 porting this code to another platform you will most likely need to adjust
 `debian/control` to match the packages needed in the `Build-Depends:` and
 `Depends:` fields. There is a tool `debian/adjust-control.sh`, but this is far
-from working in any configuration.
+from working in any configuration. Also note, that you might need to enable
+SPI on other platforms as well.
 
 ## Bi-color Displays ##
 

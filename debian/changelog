@@ -1,3 +1,9 @@
+wsepd-image (0.5) unstable; urgency=medium
+
+  * fixed bug in dual bitplane mode
+
+ -- Sven Oliver Moll <svolli@svol.li>  Sat, 12 Jan 2019 09:43:06 +0100
+
 wsepd-image (0.4) unstable; urgency=medium
 
   * added watermark image mode

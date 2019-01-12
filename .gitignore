@@ -1,4 +1,4 @@
 *.o
 *.a
-e-image
+wsepd-image
 debian/files
