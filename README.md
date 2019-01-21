@@ -18,23 +18,23 @@ then option P4).
 
 ## Supported Displays ##
 
-| Type   | Tested     |
-| ------ | ---------- |
-| 1in54  | (untested) |
-| 1in54b | (untested) |
-| 2in13  | Author     |
-| 2in13b | (untested) |
-| 2in13d | (untested) |
-| 2in7   | (untested) |
-| 2in7b  | Author     |
-| 2in9   | (untested) |
-| 2in9b  | (untested) |
-| 4in2   | (untested) |
-| 4in2b  | (untested) |
-| 5in83  | (untested) |
-| 5in83b | (untested) |
-| 7in5   | Author     |
-| 7in5b  | (untested) |
+| Type   | Tested     | Comment                                              |
+| ------ | ---------- | ---------------------------------------------------- |
+| 1in54  | (untested) |                                                      |
+| 1in54b | (untested) |                                                      |
+| 2in13  | Author     |                                                      |
+| 2in13b | (untested) |                                                      |
+| 2in13d | (untested) |                                                      |
+| 2in7   | (untested) |                                                      |
+| 2in7b  | Author     | works in single color mode using '2.7' driver        |
+| 2in9   | (untested) |                                                      |
+| 2in9b  | (untested) |                                                      |
+| 4in2   | (untested) |                                                      |
+| 4in2b  | (untested) |                                                      |
+| 5in83  | (untested) |                                                      |
+| 5in83b | (untested) |                                                      |
+| 7in5   | Author     |                                                      |
+| 7in5b  | (untested) |                                                      |
 
 ## Supported Platforms ##
 
@@ -44,7 +44,9 @@ compatible backends such as [WiringOP](https://github.com/zhaolei/WiringOP) or
 [gpio\_lib\_c](https://github.com/TinkerBoard/gpio_lib_c). Also note that a
 Raspberry Pi is configured by default to allow access to GPIO without the need
 for being root, while other implementations leave of this feature most of the
-time.
+time. Since almost every single board computer comes with its own
+implementation of wiringPi, no generic statements can be made how to get it
+running at a specific platform.
 
 But there also is a downside to Raspbian: the package of wiringPi is
 suboptimal. Everything is just thrown into one big package called "wiringpi",
@@ -56,6 +58,18 @@ porting this code to another platform you will most likely need to adjust
 `Depends:` fields. There is a tool `debian/adjust-control.sh`, but this is far
 from working in any configuration. Also note, that you might need to enable
 SPI on other platforms as well.
+
+## Specific Platform Notes ##
+
+### Raspbian in Raspberry Pi ##
+
+The platform this packaged is developed for. Just works. Tested on a
+Raspberry Pi 3B+ and a Raspberry Pi Zero.
+
+### Ubuntu 16.04 On Banana Pi ###
+
+At the `Makefile` there is an extra line that needs to be commented in. The
+binary needs root access, so suid is suggested. Tested on a BananaPi M2 Zero.
 
 ## Bi-color Displays ##
 

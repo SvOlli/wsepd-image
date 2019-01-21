@@ -228,7 +228,7 @@ int main( int argc, char *argv[] )
       clock_gettime( CLOCK_MONOTONIC, &tm2 );
       if( flags & FLAGS_SHOWTIME )
       {
-	     const char plural[2] = "s";
+         const char plural[2] = "s";
          time_t secs  = tm2.tv_sec  - tm1.tv_sec;
          long   nsecs = tm2.tv_nsec - tm1.tv_nsec;
          if( nsecs < 0 )

@@ -9,6 +9,8 @@ CFLAGS += -Wall -pedantic
 #CFLAGS += -Os
 CFLAGS += -g
 LDFLAGS += $(shell pkg-config --libs MagickWand) -L. -lws -lwiringPi -Wl,--gc-sections
+# For Banana Pi M2 Zero
+#LDFLAGS += -lrt -lcrypt
 
 PRGNAME = wsepd-image
 PRGSRCS = $(sort $(wildcard [a-z]*.c))
@@ -26,6 +28,7 @@ clean:
 
 libws.a: $(LIBOBJS)
 	$(AR) rcv $@ $(LIBOBJS)
+	$(RANLIB) $@
 
 $(PRGNAME): libws.a $(PRGOBJS)
 	$(CC) $(CFLAGS) -o $@ $(PRGOBJS) $(LDFLAGS)
