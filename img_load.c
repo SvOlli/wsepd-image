@@ -33,6 +33,33 @@ int img_load( MagickWand *m_wand, PixelWand *p_wand, const char *filename,
    {
       return 1;
    }
+   if( flags & IMG_LOAD_GREYSCALE )
+   {
+      uint16x2_t imagepos;
+      MagickPixelPacket pix;
+      PixelIterator *iterator = NULL;
+      PixelWand **p_wands;
+      int sy;
+
+      iterator = NewPixelIterator( m_wand );
+      sy = MagickGetImageHeight( m_wand );
+      for( imagepos.y = 0; imagepos.y < sy; ++imagepos.y )
+      {
+         size_t sx;
+         p_wands = PixelGetNextIteratorRow( iterator, &sx );
+         for( imagepos.x = 0; imagepos.x < sx; ++imagepos.x )
+         {
+            PixelGetMagickColor( p_wands[imagepos.x], &pix );
+            float grey = magick_greyscale( &pix );
+            pix.red   = grey;
+            pix.green = grey;
+            pix.blue  = grey;
+            PixelSetMagickColor( p_wands[imagepos.x], &pix );
+         }
+         PixelSyncIterator( iterator );
+      }
+      iterator = DestroyPixelIterator( iterator );
+   }
    if( flags & IMG_LOAD_ASPECT )
    {
       uint16x2_t imagesize;
@@ -68,6 +95,12 @@ int img_load( MagickWand *m_wand, PixelWand *p_wand, const char *filename,
       MagickQuantizeImages( m_wand, 2, GRAYColorspace, 8, FloydSteinbergDitherMethod, 1 );
    }
    return 0;
+}
+
+
+float magick_greyscale( MagickPixelPacket *pix )
+{
+   return 0.299 * pix->red + 0.587 * pix->green + 0.114 * pix->blue;
 }
 
 

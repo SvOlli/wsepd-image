@@ -56,8 +56,8 @@ int main( int argc, char *argv[] )
    int               i;
    int               opt;
    long              delay = 0;
-   img_load_t        load_cfg_1 = IMG_LOAD_MONO | IMG_LOAD_ASPECT;
-   img_load_t        load_cfg_2 = IMG_LOAD_MONO | IMG_LOAD_ASPECT;
+   img_load_t        load_cfg_1 = IMG_LOAD_MONO | IMG_LOAD_ASPECT | IMG_LOAD_GREYSCALE;
+   img_load_t        load_cfg_2 = IMG_LOAD_MONO | IMG_LOAD_ASPECT | IMG_LOAD_GREYSCALE;
    const char        *filename_2 = NULL;
    const epd_list_t  *epds;
    epd_api_t         epd;
