@@ -16,6 +16,14 @@ in `/boot/config.txt`. The line is already there, but commented out. You can
 also use the `raspi-config` utility to enable it (in main menu select 5, and
 then option P4).
 
+## Building ##
+
+```
+apt-get install libmagickwand-dev
+dpkg-buildpackage
+dpkg -i ../e-image_*.deb
+```
+
 ## Supported Displays ##
 
 | Type   | Tested     | Comment                                              |
@@ -35,6 +43,18 @@ then option P4).
 | 5in83b | (untested) |                                                      |
 | 7in5   | Author     |                                                      |
 | 7in5b  | (untested) |                                                      |
+
+### Bi-color Displays ###
+
+There are displays capable of displaying a second color (red or yellow,
+depending on the model). These are handled differently the it might be
+expected. Images are always converted to a monochrome bitplane. It is possible
+to add a secondary image that will be displayed using the "other color". Think
+of it as a watermark image.
+
+Also it seems like you can switch to the single bitplane driver to get a
+faster update. Note: this has been only tested on a "2.7b" display using the
+"2.7" driver.
 
 ## Supported Platforms ##
 
@@ -61,7 +81,7 @@ SPI on other platforms as well.
 
 ## Specific Platform Notes ##
 
-### Raspbian in Raspberry Pi ##
+### Raspbian in Raspberry Pi ###
 
 The platform this packaged is developed for. Just works. Tested on a
 Raspberry Pi 3B+ and a Raspberry Pi Zero.
@@ -70,26 +90,6 @@ Raspberry Pi 3B+ and a Raspberry Pi Zero.
 
 At the `Makefile` there is an extra line that needs to be commented in. The
 binary needs root access, so suid is suggested. Tested on a BananaPi M2 Zero.
-
-## Bi-color Displays ##
-
-There are displays capable of displaying a second color (red or yellow,
-depending on the model). These are handled differently the it might be
-expected. Images are always converted to a monochrome bitplane. It is possible
-to add a secondary image that will be displayed using the "other color". Think
-of it as a watermark image.
-
-Also it seems like you can switch to the single bitplane driver to get a
-faster update. Note: this has been only tested on a "2.7b" display using the
-"2.7" driver.
-
-## Building ##
-
-```
-apt-get install libmagickwand-dev
-dpkg-buildpackage
-dpkg -i ../e-image_*.deb
-```
 
 ## License ##
 

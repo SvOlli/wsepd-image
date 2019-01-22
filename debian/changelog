@@ -1,3 +1,10 @@
+wsepd-image (0.6) unstable; urgency=medium
+
+  * image is now converted to grey after loading for hopefully better
+    conversion
+
+ -- Sven Oliver Moll <svolli@svol.li>  Tue, 22 Jan 2019 23:28:28 +0100
+
 wsepd-image (0.5) unstable; urgency=medium
 
   * fixed bug in dual bitplane mode
