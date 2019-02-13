@@ -1,3 +1,9 @@
+wsepd-image (0.7) unstable; urgency=medium
+
+  * image can now be inverted
+
+ -- Sven Oliver Moll <svolli@svol.li>  Wed, 13 Feb 2019 23:25:02 +0100
+
 wsepd-image (0.6) unstable; urgency=medium
 
   * image is now converted to grey after loading for hopefully better
