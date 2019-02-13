@@ -1,5 +1,5 @@
 /*****************************************************************************
-* | File        :   main.c
+* | File        :   sim4bp.c
 * | Author      :   SvOlli
 * | Function    :   image loading using ImageMagick
 *****************************************************************************/
@@ -19,7 +19,7 @@ void help( const char *argv0, int exitcode )
    FILE *f = exitcode ? stderr : stdout;
 
    fprintf( f,
-            "%s: convert image to 1 bitplane\n\n"
+            "%s: convert image to 4 bitplane\n\n"
             "-a\tdon't keep aspect ratio\n"
             "-h\thelp\n"
             "-i\tinput image filename\n"

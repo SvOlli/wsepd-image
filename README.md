@@ -26,7 +26,7 @@ dpkg -i ../e-image_*.deb
 
 ## Supported Displays ##
 
-| Type   | Tested     | Comment                                              |
+| Type   | Tested by  | Comment                                              |
 | ------ | ---------- | ---------------------------------------------------- |
 | 1in54  | (untested) |                                                      |
 | 1in54b | (untested) |                                                      |
@@ -81,15 +81,38 @@ SPI on other platforms as well.
 
 ## Specific Platform Notes ##
 
-### Raspbian in Raspberry Pi ###
+These are notes on the tries to get the software run on different platforms.
 
-The platform this packaged is developed for. Just works. Tested on a
+### Raspberry Pi running Raspbian ###
+
+Works!
+The platform this packaged is developed for. Tested on a
 Raspberry Pi 3B+ and a Raspberry Pi Zero.
 
-### Ubuntu 16.04 On Banana Pi ###
+### Banana Pi running Ubuntu 16.04 from SinoVoip ###
 
+Works!
 At the `Makefile` there is an extra line that needs to be commented in. The
 binary needs root access, so suid is suggested. Tested on a BananaPi M2 Zero.
+
+### ODroid C2 running Ubuntu 16.04 from Hardkernel ###
+
+Doesn't work.
+Checked out the wiringPi implementation from
+[hardkernel](https://github.com/hardkernel/wiringPi) . Compiled the code
+using the same flags as on the Banana Pi. Segfaults in setPinMode().
+
+### OrangePi Plus 2E running Ubuntu 16.04 from Armbian ###
+
+Doesn't work.
+The code compiles, but on initialization there seems to be no reply from the
+display controller.
+
+### Pine64 running Ubuntu 16.04 from Pine64 ###
+
+Doesn't work.
+WiringPi for Pine64 seems to be an incomplete port from Raspberry Pi. Since
+the tool `gpio` does not work, no further efforts were taken.
 
 ## License ##
 
