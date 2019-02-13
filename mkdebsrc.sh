@@ -10,6 +10,7 @@ if [ ! -d '.git' ]; then
 fi
 
 version="$(git describe --tags | cut -f1-2 -d- | tr - .)"
-dch -v "${version}"
+head -1 debian/changelog | grep -q "(${version})" ||
+   dch -v "${version}"
 exec dpkg-buildpackage -S -d
 
