@@ -3,11 +3,10 @@ CC := gcc
 AR := ar
 RANLIB := ranlib
 
+CFLAGS ?= -g
 CFLAGS += $(shell pkg-config --cflags MagickWand)
 CFLAGS += -ffunction-sections -fdata-sections
 CFLAGS += -Wall -pedantic
-#CFLAGS += -Os
-CFLAGS += -g
 LDFLAGS += $(shell pkg-config --libs MagickWand) -L. -lws -lwiringPi -Wl,--gc-sections
 # For Banana Pi M2 Zero
 #LDFLAGS += -lrt -lcrypt
