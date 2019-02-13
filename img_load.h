@@ -33,6 +33,9 @@ float magick_greyscale( MagickPixelPacket *pix );
 /* erase the buffer of a single bitplane */
 void buffer_clean( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane );
 
+/* invert the buffer of a single bitplane */
+void buffer_invert( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane );
+
 /* convert ImageMagick data to bitplane buffer */
 void buffer_img( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane,
                  MagickWand *m_wand, PixelWand *p_wand );

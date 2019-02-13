@@ -15,6 +15,18 @@ void buffer_clean( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane )
 }
 
 
+void buffer_invert( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane )
+{
+   uint8_t *b = buffer + (epd->datasize * bitplane);
+   int i = 0;
+
+   while( i++ < epd->datasize )
+   {
+      *(b++) ^= 0xff;
+   }
+}
+
+
 void buffer_img( uint8_t *buffer, const epd_api_t *epd, uint8_t bitplane,
                  MagickWand *m_wand, PixelWand *p_wand )
 {

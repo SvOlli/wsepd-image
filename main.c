@@ -4,6 +4,7 @@
 * | Function    :   image loading using ImageMagick
 *****************************************************************************/
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,6 +33,8 @@ void help( const char *argv0, int exitcode )
             "-d #\tdelay between images\n"
             "-e $\te-paper driver to use (mandatory)\n"
             "-h\thelp\n"
+            "-i\tinvert image\n"
+            "-I\tinvert color image\n"
             "-r #\trotate 90, 180 or 270 degrees\n"
             "-R #\trotate color image 90, 180 or 270 degrees\n"
             "-t\tshow time spent to transfer image (without calculations)\n"
@@ -58,6 +61,8 @@ int main( int argc, char *argv[] )
    long              delay = 0;
    img_load_t        load_cfg_1 = IMG_LOAD_MONO | IMG_LOAD_ASPECT | IMG_LOAD_GREYSCALE;
    img_load_t        load_cfg_2 = IMG_LOAD_MONO | IMG_LOAD_ASPECT | IMG_LOAD_GREYSCALE;
+   bool              invert_1 = false;
+   bool              invert_2 = false;
    const char        *filename_2 = NULL;
    const epd_list_t  *epds;
    epd_api_t         epd;
@@ -70,7 +75,7 @@ int main( int argc, char *argv[] )
    }
 
    memset( &epd, 0, sizeof( epd ) );
-   while( (opt = getopt( argc, argv, "A:C:R:ad:e:hr:t" )) != -1 )
+   while( (opt = getopt( argc, argv, "A:C:IR:ad:e:hir:t" )) != -1 )
    {
       switch( opt )
       {
@@ -79,6 +84,9 @@ int main( int argc, char *argv[] )
          break;
       case 'C':
          filename_2 = optarg;
+         break;
+      case 'I':
+         invert_2 = true;
          break;
       case 'R':
          switch( strtol( optarg, 0, 0 ) % 360 )
@@ -128,6 +136,9 @@ int main( int argc, char *argv[] )
          break;
       case 'h':
          help( argv[0], 0 );
+         break;
+      case 'i':
+         invert_1 = true;
          break;
       case 'r':
          switch( strtol( optarg, 0, 0 ) % 360 )
@@ -188,6 +199,10 @@ int main( int argc, char *argv[] )
          if( !img_load( m_wand, p_wand, filename_2, epd.dispsize, load_cfg_2 ) )
          {
             buffer_img( buffer_2, &epd, 0, m_wand, p_wand );
+            if( invert_2 )
+            {
+               buffer_invert( buffer_2, &epd, 0 );
+            }
          }
       }
       else
@@ -211,6 +226,10 @@ int main( int argc, char *argv[] )
 
       buffer_clean( buffer_1, &epd, 0 );
       buffer_img( buffer_1, &epd, 0, m_wand, p_wand );
+      if( invert_1 )
+      {
+         buffer_invert( buffer_1, &epd, 0 );
+      }
       if( buffer_2 )
       {
          int j;
