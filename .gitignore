@@ -1,4 +1,9 @@
 *.o
 *.a
-wsepd-image
+src/ws*-image
+debian/.debhelper/                                                      
 debian/files
+debian/wsepd-image.debhelper.log
+debian/wsepd-image.substvars
+debian/wsepd-image/                                                     
+extern/*

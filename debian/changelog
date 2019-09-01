@@ -1,3 +1,18 @@
+wsepd-image (0.8) UNRELEASED; urgency=medium
+
+  * development release: complete change of structure
+
+ -- Sven Oliver Moll <svolli@svol.li>  Sun, 01 Sep 2019 00:49:06 +0200
+
+wsepd-image (0.7.1) unstable; urgency=medium
+
+  * internal development version
+  * only 7.5 inch supported
+  * switched to new SDK found on github
+  * migrating from wiring pi to bcm2835
+
+ -- Sven Oliver Moll <svolli@svol.li>  Sat, 10 Aug 2019 14:02:01 +0200
+
 wsepd-image (0.7) unstable; urgency=medium
 
   * image can now be inverted

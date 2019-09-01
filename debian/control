@@ -2,15 +2,15 @@ Source: wsepd-image
 Section: unknown
 Priority: optional
 Maintainer: Sven Oliver Moll <svolli@svolli.de>
-Build-Depends: debhelper (>= 9), libmagickwand-dev, wiringpi
+Build-Depends: debhelper (>= 9), libmagickwand-dev
 Standards-Version: 3.9.8
 #Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: https://anonscm.debian.org/collab-maint/e-image.git
-#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/e-image.git
+Vcs-Git: https://git.h8u.de/svolli/wsepd-image.git
+Vcs-Browser: https://git.h8u.de/svolli/wsepd-image
 
 Package: wsepd-image
 Architecture: any
-Depends: wiringpi, ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: send image to a Waveshare e-paper HAT
  small tool to send an image to a Waveshare e-paper HAT
  it will scale the image while keeping aspect ratio and dither it
