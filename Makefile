@@ -5,7 +5,7 @@ all:
 	make -C src $@
 
 distclean: clean
-	: no distclean
+	rm -rf extern
 
 test:
 	: no test

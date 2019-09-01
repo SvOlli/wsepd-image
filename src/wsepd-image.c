@@ -1,7 +1,7 @@
 /*****************************************************************************
-* | File        :   main.c
+* | File        :   wsepd-image.c
 * | Author      :   SvOlli
-* | Function    :   image loading using ImageMagick
+* | Function    :   main program for waveshare e-paper displays
 *****************************************************************************/
 
 #include <stdbool.h>
@@ -173,13 +173,10 @@ int main( int argc, char *argv[] )
       exit(12);
    }
 
-#if USE_BCM2835_LIB
-   if( geteuid() )
+   if( check_permissions() )
    {
-      fprintf( stderr, "this program must have root access. sorry.\n" );
-      return 1;
+      exit(9);
    }
-#endif
 
    if( (epd.bitplanes < 2) && filename_2 )
    {

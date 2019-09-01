@@ -15,7 +15,7 @@ PRGNAME = wsepd-image
 LIBSRCS = $(sort $(wildcard lib/*/*.c))
 LIBOBJS = $(LIBSRCS:.c=.o)
 
-PRGS = wsepd-image ws8951-image
+PRGS = wsepd-image it8951-image
 
 all: $(PRGS)
 

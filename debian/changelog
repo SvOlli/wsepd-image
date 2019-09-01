@@ -1,4 +1,12 @@
-wsepd-image (0.8) UNRELEASED; urgency=medium
+wsepd-image (0.8.1) unstable; urgency=medium
+
+  * all displays from e-Paper SDK are now included
+  * it8951 displays are now supported as well
+  * still a development release
+
+ -- Sven Oliver Moll <svolli@svol.li>  Sun, 01 Sep 2019 17:52:26 +0200
+
+wsepd-image (0.8) unstable; urgency=medium
 
   * development release: complete change of structure
 

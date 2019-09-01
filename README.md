@@ -4,7 +4,9 @@ A small tool to load an image to a waveshare e-paper display on RaspberryPi.
 It started with just supporting the
 [7.5inch](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT) version. After
 that, the idea came up to support more than just one. And with a couple of
-tricks, it was possible to support this as well.
+tricks, it was possible to support this as well. After an SDK update by
+WaveShare some of those tricks were not needed anymore, and the files could
+be taken unchanged. This lead to a full reorganization of the code.
 
 On the Raspberry Pi you also have to make sure that SPI is enabled by setting
 ```
@@ -45,6 +47,7 @@ dpkg -i ../wsepd-image_*.deb
 | 5in83bc  | (untested) |                                                    |
 | 7in5     | Author     |                                                    |
 | 7in5bc   | (untested) |                                                    |
+| it8951   | Author     | separate tool: it8951-image, 4 bit greyscale       |
 
 ### Bi-color Displays ###
 
@@ -57,6 +60,12 @@ of it as a watermark image.
 Also it seems like you can switch to the single bitplane driver to get a
 faster update. Note: this has been only tested on a "2.7b" display using the
 "2.7" driver.
+
+### IT8951 Displays ###
+
+There are displays available using an IT8951 controller. For those a separate
+tool `it8951-image` has been written. Since this controller can report the
+size of a display, no manual selection of the display is necessary.
 
 ## Supported Platforms ##
 
@@ -81,5 +90,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-

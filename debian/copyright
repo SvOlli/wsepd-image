@@ -2,12 +2,15 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: e-image
 Source: https://www.waveshare.com/wiki/ https://github.com/SvOlli/e-image/
 
-Files: *
-Copyright: 2018 Waveshare team
-           2019 SvOlli
+Files: src/lib/e-Paper/* src/lib/IT8951/*
+Copyright: 2018-2019 Waveshare team
 License: MIT
 
-Files: debian/*
+Files: src/lib/bcm2835/*
+Copyright: 2011-2013 Mike McCauley
+License: GPL2
+
+Files: *
 Copyright: 2019 SvOlli <svolli@svolli.de> 
 License: MIT
 

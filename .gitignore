@@ -1,6 +1,6 @@
 *.o
 *.a
-src/ws*-image
+src/*-image
 debian/.debhelper/                                                      
 debian/files
 debian/wsepd-image.debhelper.log

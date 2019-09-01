@@ -22,7 +22,7 @@ case "$1" in
     configure)
         # bcm2835 needs root privileges for accessing SPI
         chmod u+s /usr/bin/wsepd-image
-        chmod u+s /usr/bin/ws8951-image
+        chmod u+s /usr/bin/it8951-image
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
